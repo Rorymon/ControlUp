@@ -175,8 +175,8 @@ Import-Csv "$morningreportsdir\MorningReport.csv" | Foreach-Object {
 #Checking to validate all VDAs are no longer on an old vDisk and that VMTools are up to date
     foreach ($property in $_.PSObject.Properties)
     {
-        if ($property.Value -contains "2K12R2_PSD_09-23-2020.vhdx"){
-        $vdiskcheck = "Report has detected machine(s) with 2K12R2_PSD_09-23-2020.vhdx still attached."
+        if ($property.Value -contains "LastUsedvDisk.vhdx"){
+        $vdiskcheck = "Report has detected machine(s) with LastUsedvDisk.vhdx still attached."
         }
 
          if ($property.Value -contains "Needs Updating"){
@@ -205,7 +205,7 @@ $vmtools =  $html | ForEach {
 
 $vdisk = $vmtools | ForEach {
  
-    $PSItem -replace "<td>2K12R2_PSD_09-23-2020.vhdx</td>", "<td style='background-color:#FF8080'>2K12R2_PSD_09-23-2020.vhdx</td>"
+    $PSItem -replace "<td>LastUsedvDisk</td>", "<td style='background-color:#FF8080'>2K12R2_PSD_09-23-2020.vhdx</td>"
 }  
 
 $poweredoff = $vdisk | ForEach {
