@@ -1,7 +1,6 @@
-# ControlUp
-<h5>ControlUp Resources and Scripts</h5>
+# ControlUp Resources and Scripts
 
-CU_MorningReport.ps1 uses data retrived from ControlUp to produce daily reports. These can be useful to provide data to those who do not have access to ControlUp Insights as well as for tracking some metrics day to day that are currently presented in the ControlUp Console but not in any of the ControlUp Insights dashboards.
+<b>CU_MorningReport.ps1</b> uses data retrived from ControlUp to produce daily reports. These can be useful to provide data to those who do not have access to ControlUp Insights as well as for tracking some metrics day to day that are currently presented in the ControlUp Console but not in any of the ControlUp Insights dashboards.
 
 <h3>Example of Report</h3>
 
@@ -17,19 +16,19 @@ In the above example, you can see some of the colour coding I have included to h
 
 <img width="1234" alt="Screen Shot 2020-12-24 at 12 26 36 PM" src="https://user-images.githubusercontent.com/7652987/103088812-e7931180-45e3-11eb-8c3c-60ff66d19522.png">
 
-You will need to go into the ControlUp Console, under Settings setup an Export Schedule. I recommend outputting to C:\Users\Public\Reports to make things easy. I choose to run an export every morning around 4am. You can set yours up to run at any time you'd like.
+You will need to go into the ControlUp Console, under Settings setup an Export Schedule. I recommend outputting to <b>C:\Users\Public\Reports</b> to make things easy. I choose to run an export every morning around 4am. You can set yours up to run at any time you'd like.
 
 <img width="929" alt="Screen Shot 2020-12-24 at 12 36 35 PM" src="https://user-images.githubusercontent.com/7652987/103089076-c67ef080-45e4-11eb-833e-fd0c0621ac31.png">
 
-One on of your ControlUp Monitor servers, create the directory C:\Users\Public\Reports and copy CU_MorningReport.ps1 to that location.
+One on of your ControlUp Monitor servers, create the directory <b>C:\Users\Public\Reports</b> and copy <b>CU_MorningReport.ps1</b> to that location.
 
 <img width="454" alt="Screen Shot 2020-12-24 at 12 39 24 PM" src="https://user-images.githubusercontent.com/7652987/103089187-165db780-45e5-11eb-9aff-7445bf6b6b0f.png">
 
 On the same ControlUp Monitor server, create a Scheduled Task and run it every day AFTER the ControlUp Export Schedule has completed. (Give that at least a 10 minute window depending on how large your environment is).
 
-Example: 
-Program/script set to: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-Arguments set to: -executionPolicy RemoteSigned -NoLogo -file "C:\Users\Public\Reports\CU_MorningReport.ps1" -primarymon CUMONITOR01.rorymon.com -secondarymon CUMONITOR02.slhnaz.org -deliverygroup "App-V Applications" -emaildist CitrixEngineers@rorymon.com -smtpserver mymail.rorymon.com -emailfrom noreply@rorymon.com -reportdir C:\Users\Public\Reports
+Example:<br/>
+<b>Program/script set to:</b> C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe<br/>
+<b>Arguments set to:</b> -executionPolicy RemoteSigned -NoLogo -file "C:\Users\Public\Reports\CU_MorningReport.ps1" -primarymon CUMONITOR01.rorymon.com -secondarymon CUMONITOR02.slhnaz.org -deliverygroup "App-V Applications" -emaildist CitrixEngineers@rorymon.com -smtpserver mymail.rorymon.com -emailfrom noreply@rorymon.com -reportdir C:\Users\Public\Reports
 
 You can change these arguments to suit your environment and run the script to see if this report suits your environment.
 
