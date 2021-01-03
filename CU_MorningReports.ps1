@@ -93,7 +93,7 @@ If(!(test-path $morningreportsdir))
 }
 
 #Creating search for export schedule reports
-$monthraw = (get-date).month
+$monthraw = (get-date -Format MM )
 $yearraw = (get-date).year
 $strmonth = $monthraw.ToString()
 $dayraw = Get-Date -Format "dd"
