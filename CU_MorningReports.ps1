@@ -139,8 +139,12 @@ $import | Select-Object -Skip 1 | Set-Content $primoutput
 $import = get-content $secreport
 $import | Select-Object -Skip 1 | Set-Content $secoutput
 
-Import-Csv $primoutput | select "Name", "XD Delivery Group", "XenApp Server Logon Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part1.csv
-Import-Csv $secoutput | select "Name", "XD Delivery Group", "XenApp Server Logon Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part2.csv
+Import-Csv $primoutput | select "Name", "CVAD Delivery Group", "CVAD Maintenance Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part1.csv
+Import-Csv $secoutput | select "Name", "CVAD Delivery Group", "CVAD Maintenance Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part2.csv
+
+#For versions prior to 8.2
+#Import-Csv $primoutput | select "Name", "XD Delivery Group", "XenApp Server Logon Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part1.csv
+#Import-Csv $secoutput | select "Name", "XD Delivery Group", "XenApp Server Logon Mode","Uptime in Days","Free Space on System Drive","IP Addresses","PVS vDisk File Name","Logon Server","Host Name","VM Tools Version","VM Tools Version State" | Export-Csv -NoTypeInformation -Path $morningreportsdir\Part2.csv
 
 $csv1 = "$morningreportsdir\Part1.csv"
 $csv2 = "$morningreportsdir\Part2.csv"
